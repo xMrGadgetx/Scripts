@@ -1,7 +1,7 @@
 --[[Getting Service]]--
 local Plrs = game:GetService("Players");
 local Run = game:GetService("RunService");
-local CoreGui = game:GetService("CoreGui");
+local CoreGui = game:GetService("CoreGui");R
 local StartGui = game:GetService("StarterGui");
 local Teams = game:GetService("Teams");
 local UserInput = game:GetService("UserInputService");
@@ -432,7 +432,7 @@ Update1.BorderSizePixel = 0
 Update1.Position = UDim2.new(0, 0, 0.187280804, 0)
 Update1.Size = UDim2.new(0, 240, 0, 50)
 Update1.Font = Enum.Font.SourceSans
-Update1.Text = "Version: 5.4 Remastered"
+Update1.Text = "Version: 1.0 JackDeniels"
 Update1.TextColor3 = Color3.new(1, 1, 1)
 Update1.TextSize = 20
 
@@ -444,7 +444,7 @@ Update2.BorderSizePixel = 0
 Update2.Position = UDim2.new(0.00414937781, 0, 0.297104955, 0)
 Update2.Size = UDim2.new(0, 240, 0, 211)
 Update2.Font = Enum.Font.SourceSans
-Update2.Text = "-Auto Farm Added\n\n-Teleport Coins Fixed\n\n-HeadlessDev Skidded my joints\n\n-Updated 6/2/19"
+Update2.Text = "-Auto Farm Added\n\n-Teleport Coins Fixed\n\n-JackDeniels ScriptHub\n\n-Updated 6/2/19"
 Update2.TextColor3 = Color3.new(1, 1, 1)
 Update2.TextSize = 20
 Update2.TextWrapped = true

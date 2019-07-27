@@ -1,0 +1,216 @@
+--[[
+	hi epic gamers
+		this best free bloxburg hack by lewluw (Luaa#0381)
+	it also does not hook _namecall wOAh so u no ban ban
+	
+	big credits to wally for his sexy ui lib <3
+]]
+
+-- Variables
+local library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xMrGadgetx/Scripts/master/Bloxburg.txt", true))(); -- Credits to wally (https://v3rmillion.net/member.php?action=profile&uid=359615)
+local player = game:GetService("Players").LocalPlayer;
+local virtualUser = game:GetService("VirtualUser");
+local client = {};
+local currentJob = nil;
+local currentWorkstation = nil;
+local workEvent = nil;
+local supportedJobs = {
+	["BloxyBurgersCashier"] = true,
+	["StylezHairdresser"] = true
+};
+local isActive = false;
+local completedOrders = 0;
+local completedOrdersText = nil;
+local shiftEarningsText = nil;
+
+-- Get the needed upvalues from the registry.
+local function getClient()
+	local clientUpvalues = {
+		'modules'
+	}
+
+	for _,v in next, debug.getregistry() do
+		if(type(v) == "function") then
+			local upvalues = debug.getupvalues(v);
+
+			for i,v in next, clientUpvalues do
+				if(upvalues[v] ~= nil and client[v] == nil) then
+					client[v] = upvalues[v];
+				end 
+			end
+		end
+	end
+end
+
+-- Is supported job?
+local function isSupported()
+	return (supportedJobs[currentJob] or false);
+end
+
+-- Is workstation free?
+local function isWorkstationFree(workstation)
+	return ((workstation:FindFirstChild("InUse").Value == player or not workstation:FindFirstChild("InUse").Value) and true or false);
+end
+
+-- Is workstation occupied?
+local function isWorkstationOccupied(workstation)
+	return (workstation:FindFirstChild("Occupied").Value and true or false)
+end
+
+-- Grab order from workstation.
+local function getOrder(workstation)
+	local order = {};
+    local orderValue = workstation.Occupied.Value:WaitForChild("Order")
+
+    for i,v in next, orderValue:GetChildren() do
+    	table.insert(order, v.Value);
+    end
+    
+    return order;
+end
+
+-- Grab current job.
+local function getJob()
+	return ((client['modules'] and client['modules'].ClientStats) and client['modules'].ClientStats:GetStat("Job").Value or nil);
+end
+
+-- Grab job model.
+local function getJobModel()
+	return (client['modules'].JobData and workspace:FindFirstChild(client['modules'].JobData:GetJob(currentJob).Location:gsub("%s+", "")) or nil);
+end
+
+-- Grab job workstations.
+local function getJobWorkstations()
+	for i,v in next, getJobModel():GetChildren() do
+		if(string.match(v.Name, "Workstations")) then
+			return v:GetChildren();
+		end
+	end
+
+	return {};
+end
+
+-- Update UI
+local function updateUI()
+	completedOrdersText.Text = "Completed Orders: " .. completedOrders;
+	shiftEarningsText.Text = "Shift Earnings: " .. math.floor(client['modules'].ClientStats:GetStat("Job/ShiftEarnings").Value);
+end
+
+-- Hook getfenv (Could have made a easier solution, idk why I did this it was 4am)
+local function hookGetfenv()
+	local oldFunction;
+	local thisEnv = getfenv(1);
+
+	local hook = function(x)
+	    local o = oldFunction(x)
+
+	    if(o.script == thisEnv.script and thisEnv.script ~= player.PlayerGui.MainGUI.Scripts.JobManager) then
+	    	o.script = player.PlayerGui.MainGUI.Scripts.JobManager;
+	    end
+
+	    return o
+	end
+	oldFunction = hookfunction(getfenv, hook)
+end
+
+-- WorkEvent and InUseEvent.
+local function setupEvents()
+	if(workEvent ~= nil or type(workEvent) == "userdata") then
+		workEvent:Disconnect();
+	end
+
+	workEvent = currentWorkstation:FindFirstChild("Occupied").Changed:Connect(function(value)
+		if(value == nil) then return; end
+		if(not isActive) then 
+			workEvent:Disconnect(); 
+		end
+
+		completedOrders = completedOrders + 1;
+		updateUI();
+
+		client['modules'].DataManager:FireServer({
+			Type = "JobTask",
+			Workstation = currentWorkstation,
+			Order = getOrder(currentWorkstation)
+		})
+	end)
+end
+
+-- Do work.
+local function doWork()
+	if(isWorkstationOccupied(currentWorkstation)) then
+		client['modules'].DataManager:FireServer({
+			Type = "JobTask",
+			Workstation = currentWorkstation,
+			Order = getOrder(currentWorkstation) 
+		})
+		completedOrders = completedOrders + 1;
+	end
+
+	setupEvents();
+end
+
+-- Work thread.
+local function workThread()
+	while wait() do
+		local root = client['modules'].CharacterHandler:GetRoot(true);
+		repeat wait() currentJob = getJob(); until currentJob ~= nil and isSupported();
+
+		for i,v in next, getJobWorkstations() do
+			if(isWorkstationOccupied(v) and isWorkstationFree(v) and (root.Position - v.PrimaryPart.Position).magnitude < 10 and currentWorkstation ~= v) then
+				client['modules'].DataManager:FireServer({
+					Type = "UseWorkstation",
+					Workstation = v
+				});
+				currentWorkstation = v;
+
+				doWork();
+			elseif(currentWorkstation == v and not workEvent.Connected and isActive) then
+				doWork();
+			end
+		end
+	end
+end
+
+-- Anti afk.
+local function antiAFK()
+	player.Idled:Connect(function()
+		virtualUser:CaptureController();
+		virtualUser:ClickButton1(Vector2.new());
+	end)
+end
+
+-- Setup ui.
+local function setupUI()
+	local ui = library:CreateWindow({
+		text = "Bloxburg"
+	});
+
+	local credits = library:CreateWindow({
+		text = "Credits"
+	});
+	credits:AddLabel("Luaa: Creator\nMr.Gadget: Developer\nJackDeniels: Exploit\n");
+
+	ui:AddToggle("Auto Farm", function(state)
+		isActive = (state and true or false);
+	end)
+
+	completedOrdersText = ui:AddLabel("Completed Orders: " .. completedOrders);
+	shiftEarningsText = ui:AddLabel("Shift Earnings: 0");
+end
+
+-- Main function.
+local function initEGX()
+	getClient();
+
+	if(client['modules'] == nil) then
+		return;
+	end
+
+	setupUI();
+	antiAFK();
+	hookGetfenv();
+	workThread();
+end
+
+initEGX();

@@ -1,0 +1,412 @@
+local gui = game:GetObjects("rbxassetid://3558710258")[1]
+local textserv = game:GetService('TextService')
+local screen = gui
+local lua = screen.Bin.Background
+local frame = lua.BGExec
+local read = frame.Read
+local write = frame.Write
+local execbtn = lua.Execute
+local clearbtn = lua.Clear
+
+for i, v in next, {screen, lua, frame, read, write, execbtn, clearbtn} do
+	-- // anti pasted detection
+	v.Name = game:GetService("HttpService"):GenerateGUID(false)
+end
+
+gui.Parent = game:GetService("CoreGui")
+local replacements = {['\r'] = '', ['\t'] = '    '}
+local keyword_list = {'and', 'break', 'do', 'else', 'elseif', 'end', 'false', 'for', 'function', 'if', 'in', 'local', 'nil', 'not', 'or', 'repeat', 'return', 'self', 'then', 'true', 'until', 'while'}
+local globals_list = {}
+local colors = {
+	Comment = Color3.fromRGB(32, 96, 32),
+	Global = Color3.fromRGB(77, 198, 155),
+	Keyword = Color3.fromRGB(86, 156, 214),
+	Number = Color3.fromRGB(0, 255, 0),
+	String = Color3.fromRGB(224, 112, 112),
+	Symbol = Color3.fromRGB(255, 255, 255),
+	Word = Color3.fromRGB(255, 255, 255)
+}
+
+do
+	local env = getfenv(0)
+
+	local function recurse(s, t)
+		for i, v in next, t do
+			local name = s .. '.' .. i
+			globals_list[name] = true
+			if type(v) == 'table' then
+				recurse(name, v)
+			end
+		end
+	end
+	
+	setmetatable(globals_list, {
+		__index = function(self, what)
+			local got = env[what]
+			local rl = got ~= nil
+			if rl and type(got) == 'table' then
+				recurse(what, got)
+			end
+			self[what] = rl
+			return rl
+		end
+	})
+end
+
+local function normalize(t)
+	for i = 1, #t do
+		t[t[i]] = true
+		t[i] = nil
+	end
+end
+
+normalize(keyword_list)
+
+local function text_size(str, size)
+	return textserv:GetTextSize(str, 14, Enum.Font.Code, size)
+end
+
+local function cut_off(word, n, t)
+	if t == "[" then
+		warn(word:sub(n, n))
+		warn(word:sub(n + 1, n + 1))
+	end
+	return word:sub(n, n) == t and word:sub(n + 1, n + 1) == t
+end
+
+local function is_long(words, s)
+	if words:sub(s, s) == '[' then
+		local k = s + 1
+		while words:sub(k, k) == '=' do
+			k = k + 1
+		end
+		return words:sub(k, k) == '[', k - s + 1
+	end
+	return false, 0
+end
+
+local function read_long(words, s, n)
+	local reached
+	for i = s, #words do
+		local ch = words:sub(i, i)
+		if ch == ']' then
+			for j = i + 1, #words do
+				local wh = words:sub(j, j)
+				if wh ~= '=' then
+					if wh == ']' and ((j - i - 1) == n) then
+						reached = j
+					end
+					break
+				end
+			end
+		end
+		if reached then
+			break
+		end
+	end
+	return (reached or #words) - s + 1
+end
+
+local function read_comment(words, s)
+	local len = s + 2
+	local wlen = #words
+	local long, longlen = is_long(words, len)
+	if long then
+		return read_long(words, len + longlen, longlen - 2) + longlen + 2
+	else
+		local ch
+		repeat
+			ch = words:sub(len, len)
+			len = len + 1
+		until len > wlen or ch == '\n'
+		return len - s
+	end
+end
+
+local function read_string(words, s, q)
+	local ret = #words
+	local esc = false
+	for i = s, ret do
+		local c = words:sub(i, i)
+		if c == '\\' and not esc then
+			esc = true
+		elseif c == q and not esc then
+			ret = i
+			break
+		else
+			esc = false
+		end
+	end
+	return ret - s + 1
+end
+
+local function read_alphanum(words, s)
+	local len = 0
+	while words:sub(s + len, s + len):match('[%w_.:]') do
+		len = len + 1
+	end
+	return len
+end
+
+local function read_symbols(words, s)
+	local len = 0
+	local word
+	repeat
+		local nx = s + len
+		if cut_off(words, nx, '-') or is_long(words, nx) or cut_off(words, nx+1, "[") then
+			break
+		end
+		word = words:sub(nx, nx)
+		len = len + 1
+		wait();
+	until not word:match('[^%s%w_\'"]')
+	return len - 1
+end
+
+local function read_whitespace(words, s)
+	local len = 0
+	while words:sub(s + len, s + len):match('%s') do
+		len = len + 1
+	end
+	return len
+end
+
+local function parse_words(words)
+	local pos = 1
+	local wlen = #words
+	local list = {}
+
+	while pos <= wlen do
+		local ch = words:sub(pos, pos)
+		local frm = read:Clone()
+		local col, len
+
+		local long, longlen = is_long(words, pos)
+
+		if long then
+			len = read_long(words, pos + longlen, longlen - 2) + longlen
+			col = colors.String
+		elseif cut_off(words, pos, '-') then
+			len = read_comment(words, pos)
+			col = colors.Comment
+		elseif ch == '"' or ch == '\'' then
+			len = read_string(words, pos + 1, ch) + 1
+			col = colors.String
+		elseif ch:match('[%w_.:]') then
+			local word
+			len = read_alphanum(words, pos)
+			word = words:sub(pos, pos + len - 1)
+			if tonumber(word) then
+				col = colors.Number
+			elseif keyword_list[word] then
+				col = colors.Keyword
+			else
+				local rln = 0
+				for cnk in string.gmatch(word, '[^.:]+') do
+					local nx = rln + #cnk
+					if globals_list[word:sub(1, nx)] then
+						rln = nx + 1
+					else
+						break
+					end
+				end
+				if rln ~= 0 then
+					len = rln - 1
+					col = colors.Global
+				else
+					col = colors.Word
+				end
+			end
+		elseif ch:match('[^%s%w_\'"]') then
+			len = 1 -- fucking bandaid shit for a crash
+			col = colors.Symbol
+		elseif ch:match('%s') then
+			len = read_whitespace(words, pos)
+			col = colors.Word
+		else
+			error('uwu we did a fucky wucky and the code seems to have failed~!')
+		end
+		table.insert(list, {
+			str = words:sub(pos, pos + len - 1),
+			col = col
+		})
+		pos = pos + len
+	end
+
+	return list
+end
+
+local function highlight()
+	local wtext = write.Text:gsub('[\r\t]', replacements)
+	local parsed = parse_words(wtext)
+	local x, y = 0, 0
+	
+	write:ClearAllChildren()
+	write.Text = wtext
+
+	local function new_frame(str, col, last, j)
+		local txt = str:sub(last, j)
+		local sz = text_size(txt, frame.AbsoluteSize)
+		local num = (frame.CanvasPosition.Y + frame.AbsoluteSize.Y)
+		local num2 = (frame.CanvasPosition.Y - frame.AbsoluteSize.Y)
+		
+		if (y > num) or (y < num2) then
+			print'what the nig'
+			return sz;
+		end
+		
+		if col ~= colors.Word then
+			local rd = read:Clone()
+			rd.Text = txt
+			rd.TextColor3 = col
+			rd.Position = UDim2.new(0, x, 0, y)
+			rd.Size = UDim2.new(0, sz.X, 0, sz.Y)
+			rd.Parent = write
+		end
+
+		return sz
+	end
+	
+	
+	for i = 1, #parsed do
+		local word = parsed[i]
+		local str = word.str
+		local wl = #str
+		local tx = {}
+		local last = 1
+			
+		for j = 1, wl do
+			local c = str:sub(j, j)
+			if c == '\n' then
+				local rd = new_frame(str, word.col, last, j - 1)
+				y = y + rd.Y
+				x = 0
+				last = j + 1
+			elseif j == wl then
+				local rd = new_frame(str, word.col, last, j)
+				x = x + rd.X
+			end
+		end
+	end
+end
+
+local function dispatch_job()
+	highlight()
+end
+
+write:GetPropertyChangedSignal('Text'):Connect(function()
+	frame.CanvasSize = UDim2.new(0, write.TextBounds.X, 0, write.TextBounds.Y)
+	coroutine.wrap(dispatch_job)()
+end)
+
+coroutine.resume(coroutine.create(function()
+	local size = frame.CanvasPosition;
+	local floor = math.floor;
+	local wait = wait;
+	while wait(1) do
+		local new = frame.CanvasPosition
+		local vec1 = Vector2.new(size.X, size.Y)
+		local vec2 = Vector2.new(new.X, new.Y)
+		local distance = floor((vec1 - vec2).magnitude)
+		
+		if distance > 0 then
+			coroutine.wrap(dispatch_job)()
+		end
+		
+		size = new;
+	end
+end))
+
+execbtn.MouseButton1Click:connect(function()
+	local chunk = string.sub(string.lower(game:GetService("HttpService"):GenerateGUID(false)), 1, 8)
+	local results = {loadstring(write.Text, ("[%s]"):format(chunk))}
+
+	if (not results[1]) then
+		warn("[" .. chunk .. "] Syntax Error: " .. tostring(results[2]) .. ".")
+		return;
+	end
+
+	spawn(results[1])
+end)
+
+clearbtn.MouseButton1Click:Connect(function()
+	write:ClearAllChildren()
+	write.Text = ''
+end)
+
+do
+	local UserInputService = game:GetService("UserInputService")
+	local gui = lua.Dragger;
+	
+	local dragging
+	local dragInput
+	local dragStart
+	local startPos
+	local offset
+	
+	local function update(input)
+		local delta = input.Position - dragStart
+		gui.Position = UDim2.new(0, startPos.X + delta.X, 0, startPos.Y + delta.Y)
+	end
+	
+	gui.InputBegan:Connect(function(input)
+		if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
+			dragging = true
+			dragStart = input.Position
+			startPos = gui.AbsolutePosition
+			
+			local mouse = UserInputService:GetMouseLocation()
+			mouse = Vector2.new(mouse.X, mouse.Y - 36);
+			offset = (startPos - mouse);
+			
+			input.Changed:Connect(function()
+				if input.UserInputState == Enum.UserInputState.End then
+					dragging = false
+					coroutine.wrap(highlight)()
+				end
+			end)
+		end
+	end)
+	
+	gui.InputChanged:Connect(function(input)
+		if input.UserInputType == Enum.UserInputType.MouseMovement or input.UserInputType == Enum.UserInputType.Touch then
+			dragInput = input
+		end
+	end)
+	
+	UserInputService.InputChanged:Connect(function(input)
+		if input == dragInput and dragging then
+			update(input)
+		end
+	end)
+	
+	UserInputService.InputBegan:Connect(function(input)
+		if input.KeyCode == Enum.KeyCode.Insert then
+			lua.Visible = not lua.Visible;
+		end
+	end)
+
+	local sizing = false;
+	local function resize()
+		local obj = gui
+		local obj2 = lua
+		
+		local mouse = UserInputService:GetMouseLocation()
+		mouse = Vector2.new(mouse.X, mouse.Y - 36);
+		
+		local x = mouse.X - obj2.AbsolutePosition.X - offset.X
+		local y = mouse.Y - obj2.AbsolutePosition.Y - offset.Y
+		
+		if x < 400 then
+			x = 400
+		end
+		
+		if y < 280 then
+			y = 280
+		end
+		obj2.Size = UDim2.new(0, x, 0, y)
+		obj.Position = UDim2.new(1, -20, 1, -20)
+	end
+	
+	gui:GetPropertyChangedSignal("Position"):connect(resize)
+end

@@ -1,0 +1,213 @@
+-- Farewell Infortality.
+-- Version: 2.82
+-- Instances:
+local LumberGUI = Instance.new("ScreenGui")
+local OpenFrame = Instance.new("Frame")
+local Open = Instance.new("TextButton")
+local Main = Instance.new("Frame")
+local Close = Instance.new("TextButton")
+local Home = Instance.new("Frame")
+local Text = Instance.new("TextLabel")
+local TextButton = Instance.new("TextButton")
+local TextButton_2 = Instance.new("TextButton")
+local TextButton_3 = Instance.new("TextButton")
+local TextButton_4 = Instance.new("TextButton")
+--Properties:
+LumberGUI.Name = "Lumber GUI"
+LumberGUI.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+
+OpenFrame.Name = "OpenFrame"
+OpenFrame.Parent = LumberGUI
+OpenFrame.BackgroundColor3 = Color3.new(1, 1, 1)
+OpenFrame.Position = UDim2.new(-0.00821167883, 0, 0.506366849, 0)
+OpenFrame.Size = UDim2.new(0, 85, 0, 32)
+OpenFrame.Style = Enum.FrameStyle.RobloxRound
+
+Open.Name = "Open"
+Open.Parent = OpenFrame
+Open.BackgroundColor3 = Color3.new(1, 1, 1)
+Open.BackgroundTransparency = 1
+Open.Position = UDim2.new(-0.104013331, 0, -0.499289513, 0)
+Open.Size = UDim2.new(0, 88, 0, 32)
+Open.Font = Enum.Font.GothamBold
+Open.Text = "Open"
+Open.TextColor3 = Color3.new(1, 1, 1)
+Open.TextSize = 14
+
+Main.Name = "Main"
+Main.Parent = LumberGUI
+Main.BackgroundColor3 = Color3.new(0, 0, 0)
+Main.BorderSizePixel = 0
+Main.Position = UDim2.new(0.389626622, 0, 0.233253449, 0)
+Main.Size = UDim2.new(0, 350, 0, 94)
+Main.Visible = false
+Main.Style = Enum.FrameStyle.RobloxRound
+
+Close.Name = "Close"
+Close.Parent = Main
+Close.BackgroundColor3 = Color3.new(1, 1, 1)
+Close.BackgroundTransparency = 1
+Close.Position = UDim2.new(0.954356849, 0, 0, 0)
+Close.Size = UDim2.new(0, 22, 0, 21)
+Close.Font = Enum.Font.GothamBold
+Close.Text = "X"
+Close.TextColor3 = Color3.new(1, 1, 1)
+Close.TextSize = 14
+
+Home.Name = "Home"
+Home.Parent = Main
+Home.BackgroundColor3 = Color3.new(0, 0, 0)
+Home.BorderSizePixel = 0
+Home.Position = UDim2.new(-0.0211994741, 0, 0.35296917, 0)
+Home.Size = UDim2.new(0, 349, 0, 111)
+
+Text.Name = "Text"
+Text.Parent = Home
+Text.BackgroundColor3 = Color3.new(1, 1, 1)
+Text.BackgroundTransparency = 1
+Text.Position = UDim2.new(0.000297218561, 0, -0.279279262, 0)
+Text.Size = UDim2.new(0, 346, 0, 31)
+Text.Font = Enum.Font.Cartoon
+Text.Text = "JackDeniels Lumber Haxx"
+Text.TextColor3 = Color3.new(1, 1, 1)
+Text.TextSize = 20
+
+TextButton.Parent = Home
+TextButton.BackgroundColor3 = Color3.new(1, 1, 1)
+TextButton.BackgroundTransparency = 0.89999997615814
+TextButton.BorderColor3 = Color3.new(0.25098, 0.25098, 0.25098)
+TextButton.Position = UDim2.new(0.641833842, 0, 0.497622609, 0)
+TextButton.Size = UDim2.new(0, 118, 0, 31)
+TextButton.Font = Enum.Font.Cartoon
+TextButton.Text = "DarkLumber"
+TextButton.TextColor3 = Color3.new(1, 1, 1)
+TextButton.TextSize = 20
+TextButton.TextWrapped = true
+
+TextButton_2.Parent = Home
+TextButton_2.BackgroundColor3 = Color3.new(1, 1, 1)
+TextButton_2.BackgroundTransparency = 0.89999997615814
+TextButton_2.BorderColor3 = Color3.new(0.25098, 0.25098, 0.25098)
+TextButton_2.Position = UDim2.new(0.0257879663, 0, 0.0462962948, 0)
+TextButton_2.Size = UDim2.new(0, 118, 0, 31)
+TextButton_2.Font = Enum.Font.Cartoon
+TextButton_2.Text = "Money Dupe"
+TextButton_2.TextColor3 = Color3.new(1, 1, 1)
+TextButton_2.TextSize = 20
+TextButton_2.TextWrapped = true
+
+TextButton_3.Parent = Home
+TextButton_3.BackgroundColor3 = Color3.new(1, 1, 1)
+TextButton_3.BackgroundTransparency = 0.89999997615814
+TextButton_3.BorderColor3 = Color3.new(0.25098, 0.25098, 0.25098)
+TextButton_3.Position = UDim2.new(0.641833842, 0, 0.0462962985, 0)
+TextButton_3.Size = UDim2.new(0, 118, 0, 31)
+TextButton_3.Font = Enum.Font.Cartoon
+TextButton_3.Text = "FerryLT2"
+TextButton_3.TextColor3 = Color3.new(1, 1, 1)
+TextButton_3.TextSize = 20
+TextButton_3.TextWrapped = true
+
+TextButton_4.Parent = Home
+TextButton_4.BackgroundColor3 = Color3.new(1, 1, 1)
+TextButton_4.BackgroundTransparency = 0.89999997615814
+TextButton_4.BorderColor3 = Color3.new(0.25098, 0.25098, 0.25098)
+TextButton_4.Position = UDim2.new(0.0257879663, 0, 0.497622609, 0)
+TextButton_4.Size = UDim2.new(0, 118, 0, 31)
+TextButton_4.Font = Enum.Font.Cartoon
+TextButton_4.Text = "JackDeniels"
+TextButton_4.TextColor3 = Color3.new(1, 1, 1)
+TextButton_4.TextSize = 20
+TextButton_4.TextWrapped = true
+-- Scripts:
+function SCRIPT_YAYX72_FAKESCRIPT() -- Open.LocalScript 
+	local script = Instance.new('LocalScript')
+	script.Parent = Open
+	script.Parent.MouseEnter:Connect(function()
+		script.Parent.TextSize = 23
+	end)
+	script.Parent.MouseLeave:Connect(function()
+		script.Parent.TextSize = 18
+	end)
+	script.Parent.MouseButton1Down:Connect(function()
+		script.Parent.TextSize = 15
+	end)
+	script.Parent.MouseButton1Up:Connect(function()
+		script.Parent.TextSize = 18
+	end)
+
+end
+coroutine.resume(coroutine.create(SCRIPT_YAYX72_FAKESCRIPT))
+function SCRIPT_WBUL90_FAKESCRIPT() -- LumberGUI.LocalScript 
+	local script = Instance.new('LocalScript')
+	script.Parent = LumberGUI
+	local close = script.Parent.Main.Close
+	local open = script.Parent.OpenFrame.Open
+	close.MouseButton1Click:Connect(function()
+		script.Parent.Main.Visible = false
+		script.Parent.OpenFrame.Visible = true
+	end)
+	open.MouseButton1Click:Connect(function()
+		script.Parent.Main.Visible = true
+		script.Parent.OpenFrame.Visible = false
+	end)
+	
+	
+
+end
+coroutine.resume(coroutine.create(SCRIPT_WBUL90_FAKESCRIPT))
+function SCRIPT_RHSE87_FAKESCRIPT() -- Main.LocalScript 
+	local script = Instance.new('LocalScript')
+	script.Parent = Main
+	local main = script.Parent
+	main.Active = true
+	main.Selectable = true
+	main.Draggable = true
+
+end
+coroutine.resume(coroutine.create(SCRIPT_RHSE87_FAKESCRIPT))
+function SCRIPT_CWSI85_FAKESCRIPT() -- Close.LocalScript 
+	local script = Instance.new('LocalScript')
+	script.Parent = Close
+	script.Parent.MouseEnter:Connect(function()
+		script.Parent.TextSize = 23
+	end)
+	script.Parent.MouseLeave:Connect(function()
+		script.Parent.TextSize = 18
+	end)
+	script.Parent.MouseButton1Down:Connect(function()
+		script.Parent.TextSize = 15
+	end)
+	script.Parent.MouseButton1Up:Connect(function()
+		script.Parent.TextSize = 18
+	end)
+
+end
+coroutine.resume(coroutine.create(SCRIPT_CWSI85_FAKESCRIPT))
+function SCRIPT_RAIW82_FAKESCRIPT() -- TextButton.Script 
+	local script = Instance.new('Script')
+	script.Parent = TextButton
+	TextButton.MouseButton1Click:Connect(function()
+	loadstring(game:HttpGet(('https://raw.githubusercontent.com/xMrGadgetx/Scripts/master/DarkLumber'),true))()
+	end)
+
+end
+coroutine.resume(coroutine.create(SCRIPT_RAIW82_FAKESCRIPT))
+function SCRIPT_WJOQ88_FAKESCRIPT() -- TextButton_2.Script 
+	local script = Instance.new('Script')
+	script.Parent = TextButton_2
+	TextButton.MouseButton1Click:Connect(function()
+	loadstring(game:HttpGet((https://raw.githubusercontent.com/xMrGadgetx/Scripts/master/MoneyDupe'),true))()
+	end)
+
+end
+coroutine.resume(coroutine.create(SCRIPT_WJOQ88_FAKESCRIPT))
+function SCRIPT_HTTU66_FAKESCRIPT() -- TextButton_4.Script 
+	local script = Instance.new('Script')
+	script.Parent = TextButton_4
+	TextButton.MouseButton1Click:Connect(function()
+	loadstring(game:HttpGet(('https://raw.githubusercontent.com/xMrGadgetx/Scripts/master/LumberHaxx'),true))()
+	end)
+
+end
+coroutine.resume(coroutine.create(SCRIPT_HTTU66_FAKESCRIPT))

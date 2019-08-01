@@ -1,244 +1,157 @@
 -- Farewell Infortality.
 -- Version: 2.82
 -- Instances:
-local GuiTemplatebyvi9292 = Instance.new("ScreenGui")
+local ExploitGUI = Instance.new("ScreenGui")
+local OpenMenu = Instance.new("TextButton")
 local MainFrame = Instance.new("Frame")
-local LeftBar = Instance.new("Frame")
-local Button_Back = Instance.new("ImageLabel")
-local Hit = Instance.new("TextButton")
-local Return_Button = Instance.new("TextButton")
-local Shadow = Instance.new("TextButton")
-local Button = Instance.new("TextButton")
-local Button_Back_2 = Instance.new("Frame")
-local _Button = Instance.new("TextButton")
-local Button_Back_3 = Instance.new("Frame")
-local _Button_2 = Instance.new("TextButton")
-local Button_Back_4 = Instance.new("Frame")
-local _Button_3 = Instance.new("TextButton")
+local Bar1 = Instance.new("Frame")
+local ExploitGUILabel = Instance.new("TextLabel")
+local Speed = Instance.new("TextButton")
+local Back = Instance.new("TextButton")
+local Speed_2 = Instance.new("TextButton")
+local Speed_3 = Instance.new("TextButton")
 --Properties:
-GuiTemplatebyvi9292.Name = "Gui Template by vi#9292"
-GuiTemplatebyvi9292.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
-GuiTemplatebyvi9292.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+ExploitGUI.Name = "ExploitGUI"
+ExploitGUI.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+
+OpenMenu.Name = "OpenMenu"
+OpenMenu.Parent = ExploitGUI
+OpenMenu.BackgroundColor3 = Color3.new(0, 0, 0)
+OpenMenu.Position = UDim2.new(-0.000420221128, 0, -0.000945448875, 0)
+OpenMenu.Size = UDim2.new(0, 44, 0, 70)
+OpenMenu.Font = Enum.Font.SourceSansBold
+OpenMenu.Text = "Open"
+OpenMenu.TextColor3 = Color3.new(1, 1, 1)
+OpenMenu.TextSize = 20
 
 MainFrame.Name = "MainFrame"
-MainFrame.Parent = GuiTemplatebyvi9292
-MainFrame.Active = true
-MainFrame.BackgroundColor3 = Color3.new(0.313726, 0.313726, 0.313726)
+MainFrame.Parent = ExploitGUI
+MainFrame.BackgroundColor3 = Color3.new(0.254902, 0.254902, 0.254902)
 MainFrame.BorderSizePixel = 0
-MainFrame.Position = UDim2.new(0.547774971, 0, 0.204793036, 0)
+MainFrame.Draggable = true
+MainFrame.Position = UDim2.new(0.620798469, 0, 0.0910716504, 0)
 MainFrame.Selectable = true
-MainFrame.Size = UDim2.new(0, 283, 0, 277)
+MainFrame.Size = UDim2.new(0, 216, 0, 144)
+MainFrame.Visible = false
 
-LeftBar.Name = "LeftBar"
-LeftBar.Parent = MainFrame
-LeftBar.BackgroundColor3 = Color3.new(0.811765, 0.811765, 0.811765)
-LeftBar.BorderSizePixel = 0
-LeftBar.Size = UDim2.new(0, 164, 0, 304)
-LeftBar.Visible = false
+Bar1.Name = "Bar1"
+Bar1.Parent = MainFrame
+Bar1.BackgroundColor3 = Color3.new(0, 0, 0)
+Bar1.BorderSizePixel = 0
+Bar1.Size = UDim2.new(0, 216, 0, 30)
 
-Button_Back.Name = "Button_Back"
-Button_Back.Parent = LeftBar
-Button_Back.BackgroundColor3 = Color3.new(1, 1, 1)
-Button_Back.BackgroundTransparency = 1
-Button_Back.Position = UDim2.new(0.0419161692, 0, 0.108552635, 0)
-Button_Back.Size = UDim2.new(0, 152, 0, 49)
-Button_Back.Image = "rbxassetid://2804205546"
-Button_Back.ImageColor3 = Color3.new(0.701961, 0.701961, 0.701961)
-Button_Back.ScaleType = Enum.ScaleType.Slice
-Button_Back.SliceCenter = Rect.new(5, 5, 6, 6)
+ExploitGUILabel.Name = "Exploit GUI Label"
+ExploitGUILabel.Parent = Bar1
+ExploitGUILabel.BackgroundColor3 = Color3.new(1, 1, 1)
+ExploitGUILabel.BackgroundTransparency = 1
+ExploitGUILabel.Position = UDim2.new(0.285358995, 0, 0, 0)
+ExploitGUILabel.Size = UDim2.new(0, 108, 0, 30)
+ExploitGUILabel.Font = Enum.Font.SourceSansBold
+ExploitGUILabel.Text = "LumberHaxx"
+ExploitGUILabel.TextColor3 = Color3.new(0.980392, 0.980392, 0.980392)
+ExploitGUILabel.TextSize = 20
+ExploitGUILabel.TextXAlignment = Enum.TextXAlignment.Left
 
-Hit.Name = "Hit"
-Hit.Parent = Button_Back
-Hit.BackgroundColor3 = Color3.new(1, 1, 1)
-Hit.BackgroundTransparency = 1
-Hit.Size = UDim2.new(0, 152, 0, 49)
-Hit.Font = Enum.Font.SourceSansBold
-Hit.Text = "_Button"
-Hit.TextColor3 = Color3.new(0.282353, 0.282353, 0.282353)
-Hit.TextSize = 27
+Speed.Name = "Speed"
+Speed.Parent = MainFrame
+Speed.BackgroundColor3 = Color3.new(0, 0, 0)
+Speed.BackgroundTransparency = 1
+Speed.Position = UDim2.new(0.248321965, 0, 0.733535171, 0)
+Speed.Size = UDim2.new(0, 109, 0, 29)
+Speed.Font = Enum.Font.SourceSansBold
+Speed.Text = "FERRYLT2"
+Speed.TextColor3 = Color3.new(1, 1, 1)
+Speed.TextSize = 25
 
-Return_Button.Name = "Return_Button"
-Return_Button.Parent = LeftBar
-Return_Button.BackgroundColor3 = Color3.new(1, 1, 1)
-Return_Button.BackgroundTransparency = 1
-Return_Button.Position = UDim2.new(0.742514968, 0, 0, 0)
-Return_Button.Size = UDim2.new(0, 42, 0, 33)
-Return_Button.Font = Enum.Font.SourceSans
-Return_Button.Text = "<"
-Return_Button.TextColor3 = Color3.new(0, 0, 0)
-Return_Button.TextScaled = true
-Return_Button.TextSize = 14
-Return_Button.TextWrapped = true
+Back.Name = "Back"
+Back.Parent = MainFrame
+Back.BackgroundColor3 = Color3.new(0, 0, 0)
+Back.BackgroundTransparency = 1
+Back.Position = UDim2.new(-0.112789094, 0, -0.00281002838, 0)
+Back.Size = UDim2.new(0, 88, 0, 29)
+Back.Font = Enum.Font.SourceSansBold
+Back.Text = "X"
+Back.TextColor3 = Color3.new(1, 1, 1)
+Back.TextSize = 25
 
-Shadow.Name = "Shadow"
-Shadow.Parent = MainFrame
-Shadow.BackgroundColor3 = Color3.new(1, 1, 1)
-Shadow.BackgroundTransparency = 1
-Shadow.Position = UDim2.new(0.830138326, 0, 0, 0)
-Shadow.Size = UDim2.new(0, 49, 0, 45)
-Shadow.Font = Enum.Font.SourceSans
-Shadow.Text = "X"
-Shadow.TextColor3 = Color3.new(0, 0, 0)
-Shadow.TextScaled = true
-Shadow.TextSize = 14
-Shadow.TextWrapped = true
+Speed_2.Name = "Speed"
+Speed_2.Parent = MainFrame
+Speed_2.BackgroundColor3 = Color3.new(0, 0, 0)
+Speed_2.BackgroundTransparency = 1
+Speed_2.Position = UDim2.new(0.206655294, 0, 0.214418456, 0)
+Speed_2.Size = UDim2.new(0, 128, 0, 29)
+Speed_2.Font = Enum.Font.SourceSansBold
+Speed_2.Text = "DarkLumber"
+Speed_2.TextColor3 = Color3.new(1, 1, 1)
+Speed_2.TextSize = 25
 
-Button.Name = "Button"
-Button.Parent = MainFrame
-Button.BackgroundColor3 = Color3.new(1, 0.117647, 0.117647)
-Button.BackgroundTransparency = 1
-Button.Position = UDim2.new(0.828114033, 0, -0.00328947371, 0)
-Button.Size = UDim2.new(0, 49, 0, 45)
-Button.Font = Enum.Font.SourceSans
-Button.Text = "X"
-Button.TextColor3 = Color3.new(0.835294, 0.0588235, 0.0588235)
-Button.TextScaled = true
-Button.TextSize = 14
-Button.TextWrapped = true
-
-Button_Back_2.Name = "Button_Back"
-Button_Back_2.Parent = MainFrame
-Button_Back_2.BackgroundColor3 = Color3.new(0.780392, 0.780392, 0.780392)
-Button_Back_2.BorderSizePixel = 0
-Button_Back_2.Position = UDim2.new(0.246517479, 0, 0.731700063, 0)
-Button_Back_2.Size = UDim2.new(0, 165, 0, 48)
-
-_Button.Name = "_Button"
-_Button.Parent = Button_Back_2
-_Button.BackgroundColor3 = Color3.new(0.866667, 0.866667, 0.866667)
-_Button.BorderSizePixel = 0
-_Button.Position = UDim2.new(-0.109090917, 0, -0.244897947, 0)
-_Button.Size = UDim2.new(0, 165, 0, 49)
-_Button.Font = Enum.Font.SourceSansBold
-_Button.Text = "_Button"
-_Button.TextColor3 = Color3.new(0.243137, 0.243137, 0.243137)
-_Button.TextSize = 27
-
-Button_Back_3.Name = "Button_Back"
-Button_Back_3.Parent = MainFrame
-Button_Back_3.BackgroundColor3 = Color3.new(0.780392, 0.780392, 0.780392)
-Button_Back_3.BorderSizePixel = 0
-Button_Back_3.Position = UDim2.new(0.246517479, 0, 0.0884951651, 0)
-Button_Back_3.Size = UDim2.new(0, 165, 0, 49)
-
-_Button_2.Name = "_Button"
-_Button_2.Parent = Button_Back_3
-_Button_2.BackgroundColor3 = Color3.new(0.866667, 0.866667, 0.866667)
-_Button_2.BorderSizePixel = 0
-_Button_2.Position = UDim2.new(-0.109090917, 0, -0.244897947, 0)
-_Button_2.Size = UDim2.new(0, 165, 0, 49)
-_Button_2.Font = Enum.Font.SourceSansBold
-_Button_2.Text = "_Button"
-_Button_2.TextColor3 = Color3.new(0.243137, 0.243137, 0.243137)
-_Button_2.TextSize = 27
-
-Button_Back_4.Name = "Button_Back"
-Button_Back_4.Parent = MainFrame
-Button_Back_4.BackgroundColor3 = Color3.new(0.780392, 0.780392, 0.780392)
-Button_Back_4.BorderSizePixel = 0
-Button_Back_4.Position = UDim2.new(0.246517494, 0, 0.408452898, 0)
-Button_Back_4.Size = UDim2.new(0, 165, 0, 50)
-
-_Button_3.Name = "_Button"
-_Button_3.Parent = Button_Back_4
-_Button_3.BackgroundColor3 = Color3.new(0.866667, 0.866667, 0.866667)
-_Button_3.BorderSizePixel = 0
-_Button_3.Position = UDim2.new(-0.109090917, 0, -0.244897947, 0)
-_Button_3.Size = UDim2.new(0, 165, 0, 49)
-_Button_3.Font = Enum.Font.SourceSansBold
-_Button_3.Text = "_Button"
-_Button_3.TextColor3 = Color3.new(0.243137, 0.243137, 0.243137)
-_Button_3.TextSize = 27
+Speed_3.Name = "Speed"
+Speed_3.Parent = MainFrame
+Speed_3.BackgroundColor3 = Color3.new(0, 0, 0)
+Speed_3.BackgroundTransparency = 1
+Speed_3.Position = UDim2.new(0.248321965, 0, 0.463560134, 0)
+Speed_3.Size = UDim2.new(0, 116, 0, 29)
+Speed_3.Font = Enum.Font.SourceSansBold
+Speed_3.Text = "Money Dupe"
+Speed_3.TextColor3 = Color3.new(1, 1, 1)
+Speed_3.TextSize = 25
 -- Scripts:
-function SCRIPT_RXPO71_FAKESCRIPT() -- Return_Button.LocalScript 
+function SCRIPT_POWR72_FAKESCRIPT() -- OpenMenu.LocalScript 
 	local script = Instance.new('LocalScript')
-	script.Parent = Return_Button
+	script.Parent = OpenMenu
+	local Frame = script.Parent.Parent.MainFrame
+	local button = script.Parent
+	Frame.Visible = false
+	
+	button.MouseButton1Click:Connect(function()
+		if button.Text == "Open" then 
+			Frame.Visible = true
+			button.Text = "Close"
+			button:TweenPosition(UDim2.new(0, 0.75, 0.75, 0),"Out","Quint",3,true)
+		elseif button.Text == "Close" then
+			Frame.Visible = false
+			button.Text = "Open"
+			button:TweenPosition(UDim2.new(0, -0.001, -0.001, 0),"Out","Quint",3,true)
+		end 
+	end)
+
+end
+coroutine.resume(coroutine.create(SCRIPT_POWR72_FAKESCRIPT))
+function SCRIPT_GMWC76_FAKESCRIPT() -- Speed.LocalScript 
+	local script = Instance.new('LocalScript')
+	script.Parent = Speed
 	script.Parent.MouseButton1Click:Connect(function()
-	script.Parent.Parent.Visible = false
-	end)
-
-end
-coroutine.resume(coroutine.create(SCRIPT_RXPO71_FAKESCRIPT))
-function SCRIPT_YIHB88_FAKESCRIPT() -- Button.LocalScript 
-	local script = Instance.new('LocalScript')
-	script.Parent = Button
-	script.Parent.MouseButton1Click:Connect(function()
-	script.Parent.Parent.Parent:Destroy()
-	end)
-
-end
-coroutine.resume(coroutine.create(SCRIPT_YIHB88_FAKESCRIPT))
-function SCRIPT_ZNXG83_FAKESCRIPT() -- _Button.Handler 
-	local script = Instance.new('LocalScript')
-	script.Parent = _Button
-	script.Parent.MouseEnter:Connect(function()
-	script.Parent:TweenPosition(UDim2.new({-0.036, 0},{-0.143, 0}))
-	end)
-	
-	script.Parent.MouseLeave:Connect(function()
-	script.Parent:TweenPosition(UDim2.new(-0.109, 0,-0.245, 0))
-	end)
-	
-	_Button.MouseButton1Click:connect(function()
-		loadstring(game:HttpGet("https://raw.githubusercontent.com/xMrGadgetx/Scripts/master/MoneyDupe", true))()
-	end)
-	
-	
-	
-
-end
-coroutine.resume(coroutine.create(SCRIPT_ZNXG83_FAKESCRIPT))
-function SCRIPT_NYGD88_FAKESCRIPT() -- _Button_2.Handler 
-	local script = Instance.new('LocalScript')
-	script.Parent = _Button_2
-	script.Parent.MouseEnter:Connect(function()
-	script.Parent:TweenPosition(UDim2.new({-0.036, 0},{-0.143, 0}))
-	end)
-	
-	script.Parent.MouseLeave:Connect(function()
-	script.Parent:TweenPosition(UDim2.new(-0.109, 0,-0.245, 0))
-	end)
-	
-	_Button.MouseButton1Click:connect(function()
-		loadstring(game:HttpGet("https://raw.githubusercontent.com/xMrGadgetx/Scripts/master/DarkLumber", true))()
-	end)
-	
-	
-	
-
-end
-coroutine.resume(coroutine.create(SCRIPT_NYGD88_FAKESCRIPT))
-function SCRIPT_WPYO81_FAKESCRIPT() -- _Button_3.Handler 
-	local script = Instance.new('LocalScript')
-	script.Parent = _Button_3
-	script.Parent.MouseEnter:Connect(function()
-	script.Parent:TweenPosition(UDim2.new({-0.036, 0},{-0.143, 0}))
-	end)
-	
-	script.Parent.MouseLeave:Connect(function()
-	script.Parent:TweenPosition(UDim2.new(-0.109, 0,-0.245, 0))
-	end)
-	
-	_Button.MouseButton1Click:connect(function()
 		loadstring(game:HttpGet("https://raw.githubusercontent.com/xMrGadgetx/Scripts/master/FERRYLT2", true))()
 	end)
-	
-	
-	
 
 end
-coroutine.resume(coroutine.create(SCRIPT_WPYO81_FAKESCRIPT))
-function SCRIPT_QRIG79_FAKESCRIPT() -- GuiTemplatebyvi9292.Settings 
+coroutine.resume(coroutine.create(SCRIPT_GMWC76_FAKESCRIPT))
+function SCRIPT_DCBM86_FAKESCRIPT() -- Back.LocalScript 
 	local script = Instance.new('LocalScript')
-	script.Parent = GuiTemplatebyvi9292
-	--[[
-	You can modify things easier from here.
-	--]]
+	script.Parent = Back
 	
-	-- GUI draggable.
-	script.Parent.MainFrame.Draggable = true
-	
-	
+	script.Parent.MouseButton1Click:Connect(function()
+		script.Parent.Parent.Visible = false
+		script.Parent.Parent.Parent.LoginFrame.Visible = true
+	end)
 
 end
-coroutine.resume(coroutine.create(SCRIPT_QRIG79_FAKESCRIPT))
+coroutine.resume(coroutine.create(SCRIPT_DCBM86_FAKESCRIPT))
+function SCRIPT_OSPW89_FAKESCRIPT() -- Speed_2.LocalScript 
+	local script = Instance.new('LocalScript')
+	script.Parent = Speed_2
+	script.Parent.MouseButton1Click:Connect(function()
+		loadstring(game:HttpGet("https://raw.githubusercontent.com/xMrGadgetx/Scripts/master/DarkLumber", true))()
+	end)
+
+end
+coroutine.resume(coroutine.create(SCRIPT_OSPW89_FAKESCRIPT))
+function SCRIPT_LCHN78_FAKESCRIPT() -- Speed_3.LocalScript 
+	local script = Instance.new('LocalScript')
+	script.Parent = Speed_3
+	script.Parent.MouseButton1Click:Connect(function()
+		loadstring(game:HttpGet("https://raw.githubusercontent.com/xMrGadgetx/Scripts/master/MoneyDupe", true))()
+	end)
+
+end
+coroutine.resume(coroutine.create(SCRIPT_LCHN78_FAKESCRIPT))

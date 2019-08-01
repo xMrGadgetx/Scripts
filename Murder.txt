@@ -1,7 +1,12 @@
+--[[
+Made by ThisW0ntGetBanned
+Discord: https://discord.gg/MyjGtee
+Enjoy Kiddo's
+]]
 --[[Getting Service]]--
 local Plrs = game:GetService("Players");
 local Run = game:GetService("RunService");
-local CoreGui = game:GetService("CoreGui");R
+local CoreGui = game:GetService("CoreGui");
 local StartGui = game:GetService("StarterGui");
 local Teams = game:GetService("Teams");
 local UserInput = game:GetService("UserInputService");
@@ -10,9 +15,9 @@ local Workspace = game:GetService("Workspace");
 local CoreGui = game:GetService("CoreGui");
 local Players = game:GetService("Players");
 
---local secret953 = secret953 or debug.getupvalues;
---local secret500 = secret500 or debug.setupvalue;
---local getreg = getreg or debug.getregistry;
+local secret953 = secret953 or debug.getupvalues;
+local secret500 = secret500 or debug.setupvalue;
+local getreg = getreg or debug.getregistry;
 
 plr = game.Players.LocalPlayer ;
 hum = plr.Character.HumanoidRootPart
@@ -49,7 +54,7 @@ L = false,
    }
 
 local ULog = {
-["Info"] = "Murder Mystery GUI, JackDeniels Version, Made by Mr.Gadget, Discord: https://discordapp.com/invite/Drh9aCR",
+["Info"] = "Murder Mystery GUI, remastered, version 3.4, Made by ThisW0ntGetBanned, Discord: https://discord.gg/MyjGtee",
 ["Date"] = "3/26/19"
    }
 
@@ -113,7 +118,7 @@ end
 
 function CreateCoins( ... )
 for i, v in pairs(game.Workspace:GetDescendants()) do
-      if v.Name == "Coin_Server" then
+      if v.Name == "Coin" then
          v.CFrame = game.Players.LocalPlayer.Character.Head.CFrame
          end
      end
@@ -432,7 +437,7 @@ Update1.BorderSizePixel = 0
 Update1.Position = UDim2.new(0, 0, 0.187280804, 0)
 Update1.Size = UDim2.new(0, 240, 0, 50)
 Update1.Font = Enum.Font.SourceSans
-Update1.Text = "Version: 1.0 JackDeniels"
+Update1.Text = "Version: 5.4 Remastered"
 Update1.TextColor3 = Color3.new(1, 1, 1)
 Update1.TextSize = 20
 
@@ -444,7 +449,7 @@ Update2.BorderSizePixel = 0
 Update2.Position = UDim2.new(0.00414937781, 0, 0.297104955, 0)
 Update2.Size = UDim2.new(0, 240, 0, 211)
 Update2.Font = Enum.Font.SourceSans
-Update2.Text = "-Auto Farm Added\n\n-Teleport Coins Fixed\n\n-JackDeniels ScriptHub\n\n-Updated 6/2/19"
+Update2.Text = "-Auto Farm Added\n\n-Teleport Coins Fixed\n\n-HeadlessDev Skidded my joints\n\n-Updated 6/2/19"
 Update2.TextColor3 = Color3.new(1, 1, 1)
 Update2.TextSize = 20
 Update2.TextWrapped = true
@@ -501,7 +506,7 @@ Credits.BackgroundTransparency = 1
 Credits.Position = UDim2.new(-2.36211014, 0, -3.2644937, 0)
 Credits.Size = UDim2.new(0, 200, 0, 24)
 Credits.Font = Enum.Font.SourceSans
-Credits.Text = "By Mr.Gadget"
+Credits.Text = "By ThisW0ntGetBanned"
 Credits.TextColor3 = Color3.new(0, 1, 0)
 Credits.TextSize = 14
 
@@ -597,10 +602,10 @@ end)
 
 Coins.MouseButton1Click:connect(function()
 for i, v in pairs(game.Workspace:GetDescendants()) do
-if v.Name == "Coin_Server" then
-  v.CFrame = game.Players.LocalPlayer.Character.Head.CFrame
-  end
-  end
+      if v.Name == "Coin" then
+         v.CFrame = game.Players.LocalPlayer.Character.Head.CFrame
+         end
+     end
 end)
 
 

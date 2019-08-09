@@ -1,7 +1,7 @@
 wait(1.2)
 game.StarterGui:SetCore("SendNotification", {
-Title = "JackDeniels"; -- the title (ofc)
-Text = "JackDeniels Exploit Inject"; -- what the text says (ofc)
+Title = "Roblox"; -- the title (ofc)
+Text = "Banshee Exploit Inject"; -- what the text says (ofc)
 Icon = "rbxassetid://1977688015"; -- the image if u want. 
 Duration = 5; -- how long the notification should in secounds
 })

@@ -1,4 +1,4 @@
-local gui = loadstring(game:HttpGet("https://raw.githubusercontent.com/xMrGadgetx/Scripts/master/Internal", true))()
+local gui = game:GetObjects("rbxassetid://3630602408")[1]
 local textserv = game:GetService('TextService')
 local screen = gui
 local lua = screen.Bin.Background

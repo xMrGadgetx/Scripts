@@ -1,33 +1,17 @@
 -- Farewell Infortality.
 -- Version: 2.82
 -- Instances:
-local ProtoSmasher = Instance.new("ScreenGui")
-local Bin = Instance.new("Frame")
+local ScriptHub = Instance.new("ScreenGui")
+local Scripthub = Instance.new("Frame")
 local Background = Instance.new("Frame")
 local Title = Instance.new("ImageLabel")
-local TitleBar = Instance.new("TextLabel")
 local TextButton = Instance.new("TextButton")
+local TitleBar = Instance.new("TextLabel")
 local BGImage = Instance.new("ImageLabel")
-local Execute = Instance.new("ImageButton")
-local Label = Instance.new("TextLabel")
-local Clear = Instance.new("ImageButton")
-local Label_2 = Instance.new("TextLabel")
 local BGExec = Instance.new("ScrollingFrame")
-local Write = Instance.new("TextBox")
-local Read = Instance.new("TextLabel")
-local BGExec_2 = Instance.new("ImageLabel")
 local Dragger = Instance.new("ImageButton")
 local Frame = Instance.new("Frame")
-local Bin_2 = Instance.new("Frame")
-local Background_2 = Instance.new("Frame")
-local Title_2 = Instance.new("ImageLabel")
-local TextButton_2 = Instance.new("TextButton")
-local TitleBar_2 = Instance.new("TextLabel")
-local BGImage_2 = Instance.new("ImageLabel")
-local BGExec_3 = Instance.new("ScrollingFrame")
-local Dragger_2 = Instance.new("ImageButton")
-local Frame_2 = Instance.new("Frame")
-local BGExec_4 = Instance.new("ImageLabel")
+local BGExec_2 = Instance.new("ImageLabel")
 local Banshee = Instance.new("TextButton")
 local Banshee_2 = Instance.new("TextButton")
 local Banshee_3 = Instance.new("TextButton")
@@ -36,25 +20,25 @@ local Banshee_5 = Instance.new("TextButton")
 local Banshee_6 = Instance.new("TextButton")
 local Banshee_7 = Instance.new("TextButton")
 --Properties:
-ProtoSmasher.Name = "ProtoSmasher"
-ProtoSmasher.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
-ProtoSmasher.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+ScriptHub.Name = "ScriptHub"
+ScriptHub.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+ScriptHub.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 
-Bin.Name = "Bin"
-Bin.Parent = ProtoSmasher
-Bin.BackgroundColor3 = Color3.new(1, 1, 1)
-Bin.BackgroundTransparency = 1
-Bin.Size = UDim2.new(1, 0, 1, 0)
+Scripthub.Name = "Scripthub"
+Scripthub.Parent = ScriptHub
+Scripthub.BackgroundColor3 = Color3.new(1, 1, 1)
+Scripthub.BackgroundTransparency = 1
+Scripthub.Size = UDim2.new(1, 0, 1, 0)
 
 Background.Name = "Background"
-Background.Parent = Bin
+Background.Parent = Scripthub
 Background.Active = true
 Background.BackgroundColor3 = Color3.new(1, 1, 1)
 Background.BackgroundTransparency = 1
 Background.ClipsDescendants = true
 Background.Draggable = true
-Background.Position = UDim2.new(0, 313, 0, 85)
-Background.Size = UDim2.new(0, 400, 0, 333)
+Background.Position = UDim2.new(0, 61, 0, 24)
+Background.Size = UDim2.new(0, 245, 0, 250)
 
 Title.Name = "Title"
 Title.Parent = Background
@@ -67,16 +51,6 @@ Title.ImageColor3 = Color3.new(0.160784, 0.290196, 0.478431)
 Title.ScaleType = Enum.ScaleType.Slice
 Title.SliceCenter = Rect.new(20, 20, 20, 20)
 
-TitleBar.Name = "TitleBar"
-TitleBar.Parent = Title
-TitleBar.BackgroundColor3 = Color3.new(1, 1, 1)
-TitleBar.BackgroundTransparency = 1
-TitleBar.Size = UDim2.new(1, 0, 1, 0)
-TitleBar.Font = Enum.Font.SourceSansSemibold
-TitleBar.Text = "Banshee Internal UI"
-TitleBar.TextColor3 = Color3.new(1, 1, 1)
-TitleBar.TextSize = 16
-
 TextButton.Parent = Title
 TextButton.BackgroundColor3 = Color3.new(1, 1, 1)
 TextButton.BackgroundTransparency = 1
@@ -88,58 +62,26 @@ TextButton.TextColor3 = Color3.new(1, 1, 1)
 TextButton.TextSize = 22
 TextButton.TextWrapped = true
 
+TitleBar.Name = "TitleBar"
+TitleBar.Parent = Title
+TitleBar.BackgroundColor3 = Color3.new(1, 1, 1)
+TitleBar.BackgroundTransparency = 1
+TitleBar.Size = UDim2.new(1, 0, 1, 0)
+TitleBar.Font = Enum.Font.SourceSansSemibold
+TitleBar.Text = "Banshee Script Hub"
+TitleBar.TextColor3 = Color3.new(1, 1, 1)
+TitleBar.TextSize = 16
+
 BGImage.Name = "BGImage"
 BGImage.Parent = Background
 BGImage.BackgroundColor3 = Color3.new(1, 1, 1)
 BGImage.BackgroundTransparency = 1
 BGImage.Position = UDim2.new(0, 0, 0, 15)
-BGImage.Size = UDim2.new(1, 0, 1, -15)
+BGImage.Size = UDim2.new(1, 0, 0.920000017, -15)
 BGImage.Image = "rbxassetid://1051180924"
 BGImage.ImageColor3 = Color3.new(0.0666667, 0.0745098, 0.0627451)
 BGImage.ScaleType = Enum.ScaleType.Slice
 BGImage.SliceCenter = Rect.new(20, 20, 20, 20)
-
-Execute.Name = "Execute"
-Execute.Parent = Background
-Execute.BackgroundColor3 = Color3.new(1, 1, 1)
-Execute.BackgroundTransparency = 1
-Execute.Position = UDim2.new(0, 5, 1, -25)
-Execute.Size = UDim2.new(0, 60, 0, 20)
-Execute.Image = "rbxassetid://1051180924"
-Execute.ImageColor3 = Color3.new(0.145098, 0.278431, 0.431373)
-Execute.ScaleType = Enum.ScaleType.Slice
-Execute.SliceCenter = Rect.new(20, 20, 20, 20)
-
-Label.Name = "Label"
-Label.Parent = Execute
-Label.BackgroundColor3 = Color3.new(1, 1, 1)
-Label.BackgroundTransparency = 1
-Label.Size = UDim2.new(1, 0, 1, 0)
-Label.Font = Enum.Font.SourceSansBold
-Label.Text = "Execute"
-Label.TextColor3 = Color3.new(1, 1, 1)
-Label.TextSize = 14
-
-Clear.Name = "Clear"
-Clear.Parent = Background
-Clear.BackgroundColor3 = Color3.new(1, 1, 1)
-Clear.BackgroundTransparency = 1
-Clear.Position = UDim2.new(0, 70, 1, -25)
-Clear.Size = UDim2.new(0, 50, 0, 20)
-Clear.Image = "rbxassetid://1051180924"
-Clear.ImageColor3 = Color3.new(0.145098, 0.278431, 0.431373)
-Clear.ScaleType = Enum.ScaleType.Slice
-Clear.SliceCenter = Rect.new(20, 20, 20, 20)
-
-Label_2.Name = "Label"
-Label_2.Parent = Clear
-Label_2.BackgroundColor3 = Color3.new(1, 1, 1)
-Label_2.BackgroundTransparency = 1
-Label_2.Size = UDim2.new(1, 0, 1, 0)
-Label_2.Font = Enum.Font.SourceSansBold
-Label_2.Text = "Clear"
-Label_2.TextColor3 = Color3.new(1, 1, 1)
-Label_2.TextSize = 14
 
 BGExec.Name = "BGExec"
 BGExec.Parent = Background
@@ -153,54 +95,12 @@ BGExec.ZIndex = 2
 BGExec.CanvasSize = UDim2.new(0, 0, 0, 0)
 BGExec.ScrollBarThickness = 0
 
-Write.Name = "Write"
-Write.Parent = BGExec
-Write.BackgroundColor3 = Color3.new(1, 1, 1)
-Write.BackgroundTransparency = 1
-Write.BorderSizePixel = 0
-Write.Size = UDim2.new(1, 0, 1, 0)
-Write.ZIndex = 2
-Write.ClearTextOnFocus = false
-Write.Font = Enum.Font.Code
-Write.MultiLine = true
-Write.Text = ""
-Write.TextColor3 = Color3.new(0.8, 0.8, 0.8)
-Write.TextSize = 14
-Write.TextStrokeTransparency = 0.94999998807907
-Write.TextXAlignment = Enum.TextXAlignment.Left
-Write.TextYAlignment = Enum.TextYAlignment.Top
-
-Read.Name = "Read"
-Read.Parent = BGExec
-Read.BackgroundColor3 = Color3.new(1, 1, 1)
-Read.BackgroundTransparency = 1
-Read.BorderSizePixel = 0
-Read.ZIndex = 2
-Read.Font = Enum.Font.Code
-Read.Text = ""
-Read.TextColor3 = Color3.new(0.8, 0.8, 0.8)
-Read.TextSize = 14
-Read.TextStrokeTransparency = 0.94999998807907
-Read.TextXAlignment = Enum.TextXAlignment.Left
-Read.TextYAlignment = Enum.TextYAlignment.Top
-
-BGExec_2.Name = "BGExec"
-BGExec_2.Parent = Background
-BGExec_2.BackgroundColor3 = Color3.new(1, 1, 1)
-BGExec_2.BackgroundTransparency = 1
-BGExec_2.Position = UDim2.new(0, 5, 0, 30)
-BGExec_2.Size = UDim2.new(1, -10, 1, -61)
-BGExec_2.Image = "rbxassetid://1051180924"
-BGExec_2.ImageColor3 = Color3.new(0.117647, 0.117647, 0.117647)
-BGExec_2.ScaleType = Enum.ScaleType.Slice
-BGExec_2.SliceCenter = Rect.new(20, 20, 20, 20)
-
 Dragger.Name = "Dragger"
 Dragger.Parent = Background
 Dragger.Active = false
 Dragger.BackgroundColor3 = Color3.new(1, 1, 1)
 Dragger.BackgroundTransparency = 1
-Dragger.Position = UDim2.new(1, -20, 1, -20)
+Dragger.Position = UDim2.new(1, -20, 0.920000017, -20)
 Dragger.Size = UDim2.new(0, 20, 0, 20)
 Dragger.Modal = true
 Dragger.Image = "rbxassetid://1051180924"
@@ -218,113 +118,19 @@ Frame.Selectable = true
 Frame.Size = UDim2.new(0, 30, 0, 15)
 Frame.Visible = false
 
-Bin_2.Name = "Bin"
-Bin_2.Parent = ProtoSmasher
-Bin_2.BackgroundColor3 = Color3.new(1, 1, 1)
-Bin_2.BackgroundTransparency = 1
-Bin_2.Size = UDim2.new(1, 0, 1, 0)
-
-Background_2.Name = "Background"
-Background_2.Parent = Bin_2
-Background_2.Active = true
-Background_2.BackgroundColor3 = Color3.new(1, 1, 1)
-Background_2.BackgroundTransparency = 1
-Background_2.ClipsDescendants = true
-Background_2.Draggable = true
-Background_2.Position = UDim2.new(0, 24, 0, 91)
-Background_2.Size = UDim2.new(0, 245, 0, 250)
-
-Title_2.Name = "Title"
-Title_2.Parent = Background_2
-Title_2.BackgroundColor3 = Color3.new(1, 1, 1)
-Title_2.BackgroundTransparency = 1
-Title_2.Size = UDim2.new(1, 0, 0, 25)
-Title_2.ZIndex = 2
-Title_2.Image = "rbxassetid://1051202035"
-Title_2.ImageColor3 = Color3.new(0.160784, 0.290196, 0.478431)
-Title_2.ScaleType = Enum.ScaleType.Slice
-Title_2.SliceCenter = Rect.new(20, 20, 20, 20)
-
-TextButton_2.Parent = Title_2
-TextButton_2.BackgroundColor3 = Color3.new(1, 1, 1)
-TextButton_2.BackgroundTransparency = 1
-TextButton_2.Position = UDim2.new(1, -25, 0, 0)
-TextButton_2.Size = UDim2.new(0, 25, 1, 0)
-TextButton_2.Font = Enum.Font.SourceSansLight
-TextButton_2.Text = "X"
-TextButton_2.TextColor3 = Color3.new(1, 1, 1)
-TextButton_2.TextSize = 22
-TextButton_2.TextWrapped = true
-
-TitleBar_2.Name = "TitleBar"
-TitleBar_2.Parent = Title_2
-TitleBar_2.BackgroundColor3 = Color3.new(1, 1, 1)
-TitleBar_2.BackgroundTransparency = 1
-TitleBar_2.Size = UDim2.new(1, 0, 1, 0)
-TitleBar_2.Font = Enum.Font.SourceSansSemibold
-TitleBar_2.Text = "Banshee Script Hub"
-TitleBar_2.TextColor3 = Color3.new(1, 1, 1)
-TitleBar_2.TextSize = 16
-
-BGImage_2.Name = "BGImage"
-BGImage_2.Parent = Background_2
-BGImage_2.BackgroundColor3 = Color3.new(1, 1, 1)
-BGImage_2.BackgroundTransparency = 1
-BGImage_2.Position = UDim2.new(0, 0, 0, 15)
-BGImage_2.Size = UDim2.new(1, 0, 0.920000017, -15)
-BGImage_2.Image = "rbxassetid://1051180924"
-BGImage_2.ImageColor3 = Color3.new(0.0666667, 0.0745098, 0.0627451)
-BGImage_2.ScaleType = Enum.ScaleType.Slice
-BGImage_2.SliceCenter = Rect.new(20, 20, 20, 20)
-
-BGExec_3.Name = "BGExec"
-BGExec_3.Parent = Background_2
-BGExec_3.Active = true
-BGExec_3.BackgroundColor3 = Color3.new(1, 1, 1)
-BGExec_3.BackgroundTransparency = 1
-BGExec_3.BorderSizePixel = 0
-BGExec_3.Position = UDim2.new(0, 5, 0, 30)
-BGExec_3.Size = UDim2.new(1, -10, 1, -60)
-BGExec_3.ZIndex = 2
-BGExec_3.CanvasSize = UDim2.new(0, 0, 0, 0)
-BGExec_3.ScrollBarThickness = 0
-
-Dragger_2.Name = "Dragger"
-Dragger_2.Parent = Background_2
-Dragger_2.Active = false
-Dragger_2.BackgroundColor3 = Color3.new(1, 1, 1)
-Dragger_2.BackgroundTransparency = 1
-Dragger_2.Position = UDim2.new(1, -20, 0.920000017, -20)
-Dragger_2.Size = UDim2.new(0, 20, 0, 20)
-Dragger_2.Modal = true
-Dragger_2.Image = "rbxassetid://1051180924"
-Dragger_2.ImageColor3 = Color3.new(0.12549, 0.207843, 0.305882)
-Dragger_2.ImageTransparency = 0.25
-Dragger_2.ScaleType = Enum.ScaleType.Slice
-Dragger_2.SliceCenter = Rect.new(20, 20, 20, 20)
-
-Frame_2.Parent = Background_2
-Frame_2.BackgroundColor3 = Color3.new(0.0666667, 0.0745098, 0.0627451)
-Frame_2.BorderSizePixel = 0
-Frame_2.Position = UDim2.new(1, -32, 1, -23)
-Frame_2.Rotation = -45
-Frame_2.Selectable = true
-Frame_2.Size = UDim2.new(0, 30, 0, 15)
-Frame_2.Visible = false
-
-BGExec_4.Name = "BGExec"
-BGExec_4.Parent = Background_2
-BGExec_4.BackgroundColor3 = Color3.new(1, 1, 1)
-BGExec_4.BackgroundTransparency = 1
-BGExec_4.Position = UDim2.new(0, 5, 0, 30)
-BGExec_4.Size = UDim2.new(0.995918393, -10, 0.963999987, -61)
-BGExec_4.Image = "rbxassetid://1051180924"
-BGExec_4.ImageColor3 = Color3.new(0.117647, 0.117647, 0.117647)
-BGExec_4.ScaleType = Enum.ScaleType.Slice
-BGExec_4.SliceCenter = Rect.new(20, 20, 20, 20)
+BGExec_2.Name = "BGExec"
+BGExec_2.Parent = Background
+BGExec_2.BackgroundColor3 = Color3.new(1, 1, 1)
+BGExec_2.BackgroundTransparency = 1
+BGExec_2.Position = UDim2.new(0, 5, 0, 30)
+BGExec_2.Size = UDim2.new(0.995918393, -10, 0.963999987, -61)
+BGExec_2.Image = "rbxassetid://1051180924"
+BGExec_2.ImageColor3 = Color3.new(0.117647, 0.117647, 0.117647)
+BGExec_2.ScaleType = Enum.ScaleType.Slice
+BGExec_2.SliceCenter = Rect.new(20, 20, 20, 20)
 
 Banshee.Name = "Banshee"
-Banshee.Parent = BGExec_4
+Banshee.Parent = BGExec_2
 Banshee.BackgroundColor3 = Color3.new(1, 1, 1)
 Banshee.BackgroundTransparency = 1
 Banshee.Size = UDim2.new(0, 107, 0, 20)
@@ -334,7 +140,7 @@ Banshee.TextColor3 = Color3.new(1, 1, 1)
 Banshee.TextSize = 16
 
 Banshee_2.Name = "Banshee"
-Banshee_2.Parent = BGExec_4
+Banshee_2.Parent = BGExec_2
 Banshee_2.BackgroundColor3 = Color3.new(1, 1, 1)
 Banshee_2.BackgroundTransparency = 1
 Banshee_2.Position = UDim2.new(0, 0, 0.137566149, 0)
@@ -345,7 +151,7 @@ Banshee_2.TextColor3 = Color3.new(1, 1, 1)
 Banshee_2.TextSize = 16
 
 Banshee_3.Name = "Banshee"
-Banshee_3.Parent = BGExec_4
+Banshee_3.Parent = BGExec_2
 Banshee_3.BackgroundColor3 = Color3.new(1, 1, 1)
 Banshee_3.BackgroundTransparency = 1
 Banshee_3.Position = UDim2.new(0, 0, 0.285714298, 0)
@@ -356,7 +162,7 @@ Banshee_3.TextColor3 = Color3.new(1, 1, 1)
 Banshee_3.TextSize = 16
 
 Banshee_4.Name = "Banshee"
-Banshee_4.Parent = BGExec_4
+Banshee_4.Parent = BGExec_2
 Banshee_4.BackgroundColor3 = Color3.new(1, 1, 1)
 Banshee_4.BackgroundTransparency = 1
 Banshee_4.Position = UDim2.new(0, 0, 0.433862448, 0)
@@ -367,7 +173,7 @@ Banshee_4.TextColor3 = Color3.new(1, 1, 1)
 Banshee_4.TextSize = 16
 
 Banshee_5.Name = "Banshee"
-Banshee_5.Parent = BGExec_4
+Banshee_5.Parent = BGExec_2
 Banshee_5.BackgroundColor3 = Color3.new(1, 1, 1)
 Banshee_5.BackgroundTransparency = 1
 Banshee_5.Position = UDim2.new(0.0255319159, 0, 0.576719582, 0)
@@ -378,7 +184,7 @@ Banshee_5.TextColor3 = Color3.new(1, 1, 1)
 Banshee_5.TextSize = 16
 
 Banshee_6.Name = "Banshee"
-Banshee_6.Parent = BGExec_4
+Banshee_6.Parent = BGExec_2
 Banshee_6.BackgroundColor3 = Color3.new(1, 1, 1)
 Banshee_6.BackgroundTransparency = 1
 Banshee_6.Position = UDim2.new(0.0255319178, 0, 0.719576776, 0)
@@ -389,32 +195,18 @@ Banshee_6.TextColor3 = Color3.new(1, 1, 1)
 Banshee_6.TextSize = 16
 
 Banshee_7.Name = "Banshee"
-Banshee_7.Parent = BGExec_4
+Banshee_7.Parent = BGExec_2
 Banshee_7.BackgroundColor3 = Color3.new(1, 1, 1)
 Banshee_7.BackgroundTransparency = 1
-Banshee_7.Position = UDim2.new(0.0511729419, 0, 0.884920716, 0)
-Banshee_7.Size = UDim2.new(0, 151, 0, 20)
+Banshee_7.Position = UDim2.new(0.0511729568, 0, 0.864021122, 0)
+Banshee_7.Size = UDim2.new(0, 151, 0, 21)
 Banshee_7.Font = Enum.Font.SciFi
 Banshee_7.Text = "Fe Haxx"
 Banshee_7.TextColor3 = Color3.new(1, 1, 1)
 Banshee_7.TextSize = 16
 Banshee_7.TextXAlignment = Enum.TextXAlignment.Left
 -- Scripts:
-function SCRIPT_ITMG85_FAKESCRIPT() -- ProtoSmasher.LocalScript 
-	local script = Instance.new('LocalScript')
-	script.Parent = ProtoSmasher
-	function onKeyPress(inputObject, gameProcessedEvent)
-		if not gameProcessedEvent then
-	    if inputObject.KeyCode == Enum.KeyCode.Insert  then -- change 'E' to any key on the keyboard. EX: Tab
-			script.Parent.Bin.Visible = not script.Parent.Bin.Visible
-			end
-		end
-	end
-	game:GetService("UserInputService").InputBegan:connect(onKeyPress)
-
-end
-coroutine.resume(coroutine.create(SCRIPT_ITMG85_FAKESCRIPT))
-function SCRIPT_NMEG74_FAKESCRIPT() -- Banshee.Script 
+function SCRIPT_TUTF80_FAKESCRIPT() -- Banshee.Script 
 	local script = Instance.new('Script')
 	script.Parent = Banshee
 	Banshee.MouseButton1Click:Connect(function()
@@ -422,8 +214,8 @@ function SCRIPT_NMEG74_FAKESCRIPT() -- Banshee.Script
 	end)
 
 end
-coroutine.resume(coroutine.create(SCRIPT_NMEG74_FAKESCRIPT))
-function SCRIPT_NVBH88_FAKESCRIPT() -- Banshee_2.Script 
+coroutine.resume(coroutine.create(SCRIPT_TUTF80_FAKESCRIPT))
+function SCRIPT_FQTT79_FAKESCRIPT() -- Banshee_2.Script 
 	local script = Instance.new('Script')
 	script.Parent = Banshee_2
 	Banshee.MouseButton1Click:Connect(function()
@@ -431,8 +223,8 @@ function SCRIPT_NVBH88_FAKESCRIPT() -- Banshee_2.Script
 	end)
 
 end
-coroutine.resume(coroutine.create(SCRIPT_NVBH88_FAKESCRIPT))
-function SCRIPT_DLJM75_FAKESCRIPT() -- Banshee_3.Script 
+coroutine.resume(coroutine.create(SCRIPT_FQTT79_FAKESCRIPT))
+function SCRIPT_NJKW70_FAKESCRIPT() -- Banshee_3.Script 
 	local script = Instance.new('Script')
 	script.Parent = Banshee_3
 	Banshee.MouseButton1Click:Connect(function()
@@ -440,8 +232,8 @@ function SCRIPT_DLJM75_FAKESCRIPT() -- Banshee_3.Script
 	end)
 
 end
-coroutine.resume(coroutine.create(SCRIPT_DLJM75_FAKESCRIPT))
-function SCRIPT_TACM65_FAKESCRIPT() -- Banshee_4.Script 
+coroutine.resume(coroutine.create(SCRIPT_NJKW70_FAKESCRIPT))
+function SCRIPT_NOPN82_FAKESCRIPT() -- Banshee_4.Script 
 	local script = Instance.new('Script')
 	script.Parent = Banshee_4
 	Banshee.MouseButton1Click:Connect(function()
@@ -449,8 +241,8 @@ function SCRIPT_TACM65_FAKESCRIPT() -- Banshee_4.Script
 	end)
 
 end
-coroutine.resume(coroutine.create(SCRIPT_TACM65_FAKESCRIPT))
-function SCRIPT_CPCS90_FAKESCRIPT() -- Banshee_5.Script 
+coroutine.resume(coroutine.create(SCRIPT_NOPN82_FAKESCRIPT))
+function SCRIPT_FMHK68_FAKESCRIPT() -- Banshee_5.Script 
 	local script = Instance.new('Script')
 	script.Parent = Banshee_5
 	Banshee.MouseButton1Click:Connect(function()
@@ -458,8 +250,8 @@ function SCRIPT_CPCS90_FAKESCRIPT() -- Banshee_5.Script
 	end)
 
 end
-coroutine.resume(coroutine.create(SCRIPT_CPCS90_FAKESCRIPT))
-function SCRIPT_JJEE79_FAKESCRIPT() -- Banshee_6.Script 
+coroutine.resume(coroutine.create(SCRIPT_FMHK68_FAKESCRIPT))
+function SCRIPT_EVIL88_FAKESCRIPT() -- Banshee_6.Script 
 	local script = Instance.new('Script')
 	script.Parent = Banshee_6
 	Banshee.MouseButton1Click:Connect(function()
@@ -467,8 +259,8 @@ function SCRIPT_JJEE79_FAKESCRIPT() -- Banshee_6.Script
 	end)
 
 end
-coroutine.resume(coroutine.create(SCRIPT_JJEE79_FAKESCRIPT))
-function SCRIPT_LNKX81_FAKESCRIPT() -- Banshee_7.Script 
+coroutine.resume(coroutine.create(SCRIPT_EVIL88_FAKESCRIPT))
+function SCRIPT_VNPN65_FAKESCRIPT() -- Banshee_7.Script 
 	local script = Instance.new('Script')
 	script.Parent = Banshee_7
 	Banshee.MouseButton1Click:Connect(function()
@@ -476,4 +268,4 @@ function SCRIPT_LNKX81_FAKESCRIPT() -- Banshee_7.Script
 	end)
 
 end
-coroutine.resume(coroutine.create(SCRIPT_LNKX81_FAKESCRIPT))
+coroutine.resume(coroutine.create(SCRIPT_VNPN65_FAKESCRIPT))

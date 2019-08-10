@@ -18,6 +18,23 @@ local Read = Instance.new("TextLabel")
 local BGExec_2 = Instance.new("ImageLabel")
 local Dragger = Instance.new("ImageButton")
 local Frame = Instance.new("Frame")
+local Bin_2 = Instance.new("Frame")
+local Background_2 = Instance.new("Frame")
+local Title_2 = Instance.new("ImageLabel")
+local TextButton_2 = Instance.new("TextButton")
+local TitleBar_2 = Instance.new("TextLabel")
+local BGImage_2 = Instance.new("ImageLabel")
+local BGExec_3 = Instance.new("ScrollingFrame")
+local Dragger_2 = Instance.new("ImageButton")
+local Frame_2 = Instance.new("Frame")
+local BGExec_4 = Instance.new("ImageLabel")
+local Banshee = Instance.new("TextButton")
+local Banshee_2 = Instance.new("TextButton")
+local Banshee_3 = Instance.new("TextButton")
+local Banshee_4 = Instance.new("TextButton")
+local Banshee_5 = Instance.new("TextButton")
+local Banshee_6 = Instance.new("TextButton")
+local Banshee_7 = Instance.new("TextButton")
 --Properties:
 ProtoSmasher.Name = "ProtoSmasher"
 ProtoSmasher.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
@@ -56,7 +73,7 @@ TitleBar.BackgroundColor3 = Color3.new(1, 1, 1)
 TitleBar.BackgroundTransparency = 1
 TitleBar.Size = UDim2.new(1, 0, 1, 0)
 TitleBar.Font = Enum.Font.SourceSansSemibold
-TitleBar.Text = "JackDeniels Internal UI"
+TitleBar.Text = "Banshee Internal UI"
 TitleBar.TextColor3 = Color3.new(1, 1, 1)
 TitleBar.TextSize = 16
 
@@ -200,8 +217,190 @@ Frame.Rotation = -45
 Frame.Selectable = true
 Frame.Size = UDim2.new(0, 30, 0, 15)
 Frame.Visible = false
+
+Bin_2.Name = "Bin"
+Bin_2.Parent = ProtoSmasher
+Bin_2.BackgroundColor3 = Color3.new(1, 1, 1)
+Bin_2.BackgroundTransparency = 1
+Bin_2.Size = UDim2.new(1, 0, 1, 0)
+
+Background_2.Name = "Background"
+Background_2.Parent = Bin_2
+Background_2.Active = true
+Background_2.BackgroundColor3 = Color3.new(1, 1, 1)
+Background_2.BackgroundTransparency = 1
+Background_2.ClipsDescendants = true
+Background_2.Draggable = true
+Background_2.Position = UDim2.new(0, 24, 0, 91)
+Background_2.Size = UDim2.new(0, 245, 0, 250)
+
+Title_2.Name = "Title"
+Title_2.Parent = Background_2
+Title_2.BackgroundColor3 = Color3.new(1, 1, 1)
+Title_2.BackgroundTransparency = 1
+Title_2.Size = UDim2.new(1, 0, 0, 25)
+Title_2.ZIndex = 2
+Title_2.Image = "rbxassetid://1051202035"
+Title_2.ImageColor3 = Color3.new(0.160784, 0.290196, 0.478431)
+Title_2.ScaleType = Enum.ScaleType.Slice
+Title_2.SliceCenter = Rect.new(20, 20, 20, 20)
+
+TextButton_2.Parent = Title_2
+TextButton_2.BackgroundColor3 = Color3.new(1, 1, 1)
+TextButton_2.BackgroundTransparency = 1
+TextButton_2.Position = UDim2.new(1, -25, 0, 0)
+TextButton_2.Size = UDim2.new(0, 25, 1, 0)
+TextButton_2.Font = Enum.Font.SourceSansLight
+TextButton_2.Text = "X"
+TextButton_2.TextColor3 = Color3.new(1, 1, 1)
+TextButton_2.TextSize = 22
+TextButton_2.TextWrapped = true
+
+TitleBar_2.Name = "TitleBar"
+TitleBar_2.Parent = Title_2
+TitleBar_2.BackgroundColor3 = Color3.new(1, 1, 1)
+TitleBar_2.BackgroundTransparency = 1
+TitleBar_2.Size = UDim2.new(1, 0, 1, 0)
+TitleBar_2.Font = Enum.Font.SourceSansSemibold
+TitleBar_2.Text = "Banshee Script Hub"
+TitleBar_2.TextColor3 = Color3.new(1, 1, 1)
+TitleBar_2.TextSize = 16
+
+BGImage_2.Name = "BGImage"
+BGImage_2.Parent = Background_2
+BGImage_2.BackgroundColor3 = Color3.new(1, 1, 1)
+BGImage_2.BackgroundTransparency = 1
+BGImage_2.Position = UDim2.new(0, 0, 0, 15)
+BGImage_2.Size = UDim2.new(1, 0, 0.920000017, -15)
+BGImage_2.Image = "rbxassetid://1051180924"
+BGImage_2.ImageColor3 = Color3.new(0.0666667, 0.0745098, 0.0627451)
+BGImage_2.ScaleType = Enum.ScaleType.Slice
+BGImage_2.SliceCenter = Rect.new(20, 20, 20, 20)
+
+BGExec_3.Name = "BGExec"
+BGExec_3.Parent = Background_2
+BGExec_3.Active = true
+BGExec_3.BackgroundColor3 = Color3.new(1, 1, 1)
+BGExec_3.BackgroundTransparency = 1
+BGExec_3.BorderSizePixel = 0
+BGExec_3.Position = UDim2.new(0, 5, 0, 30)
+BGExec_3.Size = UDim2.new(1, -10, 1, -60)
+BGExec_3.ZIndex = 2
+BGExec_3.CanvasSize = UDim2.new(0, 0, 0, 0)
+BGExec_3.ScrollBarThickness = 0
+
+Dragger_2.Name = "Dragger"
+Dragger_2.Parent = Background_2
+Dragger_2.Active = false
+Dragger_2.BackgroundColor3 = Color3.new(1, 1, 1)
+Dragger_2.BackgroundTransparency = 1
+Dragger_2.Position = UDim2.new(1, -20, 0.920000017, -20)
+Dragger_2.Size = UDim2.new(0, 20, 0, 20)
+Dragger_2.Modal = true
+Dragger_2.Image = "rbxassetid://1051180924"
+Dragger_2.ImageColor3 = Color3.new(0.12549, 0.207843, 0.305882)
+Dragger_2.ImageTransparency = 0.25
+Dragger_2.ScaleType = Enum.ScaleType.Slice
+Dragger_2.SliceCenter = Rect.new(20, 20, 20, 20)
+
+Frame_2.Parent = Background_2
+Frame_2.BackgroundColor3 = Color3.new(0.0666667, 0.0745098, 0.0627451)
+Frame_2.BorderSizePixel = 0
+Frame_2.Position = UDim2.new(1, -32, 1, -23)
+Frame_2.Rotation = -45
+Frame_2.Selectable = true
+Frame_2.Size = UDim2.new(0, 30, 0, 15)
+Frame_2.Visible = false
+
+BGExec_4.Name = "BGExec"
+BGExec_4.Parent = Background_2
+BGExec_4.BackgroundColor3 = Color3.new(1, 1, 1)
+BGExec_4.BackgroundTransparency = 1
+BGExec_4.Position = UDim2.new(0, 5, 0, 30)
+BGExec_4.Size = UDim2.new(0.995918393, -10, 0.963999987, -61)
+BGExec_4.Image = "rbxassetid://1051180924"
+BGExec_4.ImageColor3 = Color3.new(0.117647, 0.117647, 0.117647)
+BGExec_4.ScaleType = Enum.ScaleType.Slice
+BGExec_4.SliceCenter = Rect.new(20, 20, 20, 20)
+
+Banshee.Name = "Banshee"
+Banshee.Parent = BGExec_4
+Banshee.BackgroundColor3 = Color3.new(1, 1, 1)
+Banshee.BackgroundTransparency = 1
+Banshee.Size = UDim2.new(0, 107, 0, 20)
+Banshee.Font = Enum.Font.SciFi
+Banshee.Text = "Jailbreak Haxx"
+Banshee.TextColor3 = Color3.new(1, 1, 1)
+Banshee.TextSize = 16
+
+Banshee_2.Name = "Banshee"
+Banshee_2.Parent = BGExec_4
+Banshee_2.BackgroundColor3 = Color3.new(1, 1, 1)
+Banshee_2.BackgroundTransparency = 1
+Banshee_2.Position = UDim2.new(0, 0, 0.137566149, 0)
+Banshee_2.Size = UDim2.new(0, 107, 0, 20)
+Banshee_2.Font = Enum.Font.SciFi
+Banshee_2.Text = "Madcity Haxx"
+Banshee_2.TextColor3 = Color3.new(1, 1, 1)
+Banshee_2.TextSize = 16
+
+Banshee_3.Name = "Banshee"
+Banshee_3.Parent = BGExec_4
+Banshee_3.BackgroundColor3 = Color3.new(1, 1, 1)
+Banshee_3.BackgroundTransparency = 1
+Banshee_3.Position = UDim2.new(0, 0, 0.285714298, 0)
+Banshee_3.Size = UDim2.new(0, 107, 0, 20)
+Banshee_3.Font = Enum.Font.SciFi
+Banshee_3.Text = "Arsenal Haxx"
+Banshee_3.TextColor3 = Color3.new(1, 1, 1)
+Banshee_3.TextSize = 16
+
+Banshee_4.Name = "Banshee"
+Banshee_4.Parent = BGExec_4
+Banshee_4.BackgroundColor3 = Color3.new(1, 1, 1)
+Banshee_4.BackgroundTransparency = 1
+Banshee_4.Position = UDim2.new(0, 0, 0.433862448, 0)
+Banshee_4.Size = UDim2.new(0, 107, 0, 20)
+Banshee_4.Font = Enum.Font.SciFi
+Banshee_4.Text = "Lumber Haxx"
+Banshee_4.TextColor3 = Color3.new(1, 1, 1)
+Banshee_4.TextSize = 16
+
+Banshee_5.Name = "Banshee"
+Banshee_5.Parent = BGExec_4
+Banshee_5.BackgroundColor3 = Color3.new(1, 1, 1)
+Banshee_5.BackgroundTransparency = 1
+Banshee_5.Position = UDim2.new(0.0255319159, 0, 0.576719582, 0)
+Banshee_5.Size = UDim2.new(0, 107, 0, 20)
+Banshee_5.Font = Enum.Font.SciFi
+Banshee_5.Text = "Reviz Admin V2"
+Banshee_5.TextColor3 = Color3.new(1, 1, 1)
+Banshee_5.TextSize = 16
+
+Banshee_6.Name = "Banshee"
+Banshee_6.Parent = BGExec_4
+Banshee_6.BackgroundColor3 = Color3.new(1, 1, 1)
+Banshee_6.BackgroundTransparency = 1
+Banshee_6.Position = UDim2.new(0.0255319178, 0, 0.719576776, 0)
+Banshee_6.Size = UDim2.new(0, 151, 0, 20)
+Banshee_6.Font = Enum.Font.SciFi
+Banshee_6.Text = "Murder Mystery Haxx"
+Banshee_6.TextColor3 = Color3.new(1, 1, 1)
+Banshee_6.TextSize = 16
+
+Banshee_7.Name = "Banshee"
+Banshee_7.Parent = BGExec_4
+Banshee_7.BackgroundColor3 = Color3.new(1, 1, 1)
+Banshee_7.BackgroundTransparency = 1
+Banshee_7.Position = UDim2.new(0.0511729419, 0, 0.884920716, 0)
+Banshee_7.Size = UDim2.new(0, 151, 0, 20)
+Banshee_7.Font = Enum.Font.SciFi
+Banshee_7.Text = "Fe Haxx"
+Banshee_7.TextColor3 = Color3.new(1, 1, 1)
+Banshee_7.TextSize = 16
+Banshee_7.TextXAlignment = Enum.TextXAlignment.Left
 -- Scripts:
-function SCRIPT_LBKT70_FAKESCRIPT() -- ProtoSmasher.LocalScript 
+function SCRIPT_ITMG85_FAKESCRIPT() -- ProtoSmasher.LocalScript 
 	local script = Instance.new('LocalScript')
 	script.Parent = ProtoSmasher
 	function onKeyPress(inputObject, gameProcessedEvent)
@@ -214,4 +413,67 @@ function SCRIPT_LBKT70_FAKESCRIPT() -- ProtoSmasher.LocalScript
 	game:GetService("UserInputService").InputBegan:connect(onKeyPress)
 
 end
-coroutine.resume(coroutine.create(SCRIPT_LBKT70_FAKESCRIPT))
+coroutine.resume(coroutine.create(SCRIPT_ITMG85_FAKESCRIPT))
+function SCRIPT_NMEG74_FAKESCRIPT() -- Banshee.Script 
+	local script = Instance.new('Script')
+	script.Parent = Banshee
+	Banshee.MouseButton1Click:Connect(function()
+		loadstring(game:HttpGet("https://raw.githubusercontent.com/xMrGadgetx/Scripts/master/JailbreakHaxx", true))()
+	end)
+
+end
+coroutine.resume(coroutine.create(SCRIPT_NMEG74_FAKESCRIPT))
+function SCRIPT_NVBH88_FAKESCRIPT() -- Banshee_2.Script 
+	local script = Instance.new('Script')
+	script.Parent = Banshee_2
+	Banshee.MouseButton1Click:Connect(function()
+		loadstring(game:HttpGet("https://raw.githubusercontent.com/xMrGadgetx/Scripts/master/MadCityHaxx", true))()
+	end)
+
+end
+coroutine.resume(coroutine.create(SCRIPT_NVBH88_FAKESCRIPT))
+function SCRIPT_DLJM75_FAKESCRIPT() -- Banshee_3.Script 
+	local script = Instance.new('Script')
+	script.Parent = Banshee_3
+	Banshee.MouseButton1Click:Connect(function()
+		loadstring(game:HttpGet("https://raw.githubusercontent.com/xMrGadgetx/Scripts/master/ArsenalHaxx", true))()
+	end)
+
+end
+coroutine.resume(coroutine.create(SCRIPT_DLJM75_FAKESCRIPT))
+function SCRIPT_TACM65_FAKESCRIPT() -- Banshee_4.Script 
+	local script = Instance.new('Script')
+	script.Parent = Banshee_4
+	Banshee.MouseButton1Click:Connect(function()
+		loadstring(game:HttpGet("https://raw.githubusercontent.com/xMrGadgetx/Scripts/master/LumberHaxxData", true))()
+	end)
+
+end
+coroutine.resume(coroutine.create(SCRIPT_TACM65_FAKESCRIPT))
+function SCRIPT_CPCS90_FAKESCRIPT() -- Banshee_5.Script 
+	local script = Instance.new('Script')
+	script.Parent = Banshee_5
+	Banshee.MouseButton1Click:Connect(function()
+		loadstring(game:HttpGet("https://pastebinp.com/raw/aUTcyhXL", true))()
+	end)
+
+end
+coroutine.resume(coroutine.create(SCRIPT_CPCS90_FAKESCRIPT))
+function SCRIPT_JJEE79_FAKESCRIPT() -- Banshee_6.Script 
+	local script = Instance.new('Script')
+	script.Parent = Banshee_6
+	Banshee.MouseButton1Click:Connect(function()
+		loadstring(game:HttpGet("https://raw.githubusercontent.com/xMrGadgetx/Scripts/master/Murder.txt", true))()
+	end)
+
+end
+coroutine.resume(coroutine.create(SCRIPT_JJEE79_FAKESCRIPT))
+function SCRIPT_LNKX81_FAKESCRIPT() -- Banshee_7.Script 
+	local script = Instance.new('Script')
+	script.Parent = Banshee_7
+	Banshee.MouseButton1Click:Connect(function()
+		loadstring(game:HttpGet("https://pastebinp.com/raw/aUTcyhXL", true))()
+	end)
+
+end
+coroutine.resume(coroutine.create(SCRIPT_LNKX81_FAKESCRIPT))
